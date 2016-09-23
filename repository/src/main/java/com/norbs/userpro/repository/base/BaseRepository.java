@@ -1,6 +1,6 @@
 package com.norbs.userpro.repository.base;
 
-import com.norbs.userpro.entity.base.BaseEntity;
+import com.norbs.userpro.domain.base.BaseEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
