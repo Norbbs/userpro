@@ -1,5 +1,7 @@
 package com.norbs.userpro.entity.base;
 
+import com.norbs.userpro.entity.user.User;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -8,22 +10,30 @@ import java.util.Date;
  * Created by Norbs on 18/09/2016.
  */
 @MappedSuperclass
-public class BaseEntity implements Serializable {
+public abstract class BaseEntity implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @ManyToOne
+    @JoinColumn(name = "creator_user", nullable = false)
+    private User creator;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date", nullable = false)
     private Date creationDate;
 
+    @ManyToOne
+    @JoinColumn(name = "updater_user")
+    private User updater;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "update_date")
     private Date updateDate;
 
-    public Long getId() {
-        return id;
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
     }
 
     public Date getCreationDate() {
@@ -34,25 +44,19 @@ public class BaseEntity implements Serializable {
         this.creationDate = creationDate;
     }
 
+    public User getUpdater() {
+        return updater;
+    }
+
+    public void setUpdater(User updater) {
+        this.updater = updater;
+    }
+
     public Date getUpdateDate() {
         return updateDate;
     }
 
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-
-        BaseEntity that = (BaseEntity) o;
-
-        return id != null ? id.equals(that.id) : that.id == null;
-    }
-
-    @Override
-    public int hashCode() {
-        return id != null ? id.hashCode() : 0;
     }
 }

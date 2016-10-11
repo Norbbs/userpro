@@ -1,6 +1,6 @@
 package com.norbs.userpro.entity.user;
 
-import com.norbs.userpro.entity.base.BaseEntity;
+import com.norbs.userpro.entity.base.SimpleEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "user")
-public class User extends BaseEntity {
+public class User extends SimpleEntity {
 
     @Column(name = "email", nullable = false, length = 64, unique = true)
     private String email;

@@ -1,6 +1,6 @@
 package com.norbs.userpro.repository.base;
 
-import com.norbs.userpro.domain.base.BaseEntity;
+import com.norbs.userpro.entity.base.BaseEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 /**
  * Created by Norbs on 21/09/2016.
  */
-public abstract class BaseRepository<T extends BaseEntity>  implements Repository<T> {
+public abstract class BaseRepository<T extends BaseEntity> implements Repository<T> {
 
     private EntityManager entityManager;
 

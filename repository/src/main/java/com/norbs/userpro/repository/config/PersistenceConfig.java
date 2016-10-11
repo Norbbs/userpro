@@ -19,7 +19,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = "com.norbs.userpro.domain.*")
+@ComponentScan(basePackages = "com.norbs.userpro.entity.*")
 public class PersistenceConfig {
 
     @Autowired

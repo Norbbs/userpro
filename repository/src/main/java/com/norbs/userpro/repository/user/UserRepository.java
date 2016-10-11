@@ -1,6 +1,6 @@
 package com.norbs.userpro.repository.user;
 
-import com.norbs.userpro.domain.user.User;
+import com.norbs.userpro.entity.user.User;
 import com.norbs.userpro.repository.base.BaseRepository;
 import org.springframework.stereotype.Repository;
 
